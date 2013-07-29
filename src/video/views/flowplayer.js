@@ -324,12 +324,12 @@ if (!Sherd.Video.Flowplayer && Sherd.Video.Base) {
                 if (create_obj.playerParams.provider === "audio") {
                     options.plugins.audio = { url: 'flowplayer.audio-3.2.10.swf' };
                 } else {
-                    options.plugins.pseudo = { url: 'flowplayer.pseudostreaming-3.2.11.swf' };
+                    options.plugins.pseudo = { url: 'flowplayer.pseudostreaming-3.2.12.swf' };
                     options.plugins.rtmp = { url: 'flowplayer.rtmp-3.2.11.swf' };
                 }
                 
                 if (create_obj.object.poster) {
-                    options.clip.coverImage = { url: create_obj.object.poster, scaling: 'orig' };
+                     options.playlist.splice(0, 0, { url: create_obj.object.poster, scaling: 'orig' });
                 } else if (create_obj.playerParams.provider === "audio") {
                     options.clip.coverImage = { url: "http://mediathread.ccnmtl.columbia.edu/site_media/img/poster_audio.png", scaling: 'orig' };
                 }
@@ -344,7 +344,7 @@ if (!Sherd.Video.Flowplayer && Sherd.Video.Base) {
                 
                 if (create_obj.playerParams.provider === 'rtmp') {
                     if (create_obj.playerParams.netConnectionUrl) {
-                        options.playlist[0].netConnectionUrl = create_obj.playerParams.netConnectionUrl;
+                        options.playlist[1].netConnectionUrl = create_obj.playerParams.netConnectionUrl;
                     }
                 }
                 

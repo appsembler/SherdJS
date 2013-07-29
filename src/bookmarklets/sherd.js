@@ -683,6 +683,23 @@ SherdBookmarklet = {
             })
         }
     },
+    "techtv.mit.edu":{
+        find:function(callback) {
+            SherdBookmarklet.run_with_jquery(function _find(jQuery) {
+            var video = document.getElementById("player_api");
+            var context = {
+              "document": document,
+              "frame": window,
+              "hasBody": true,
+              "window": window
+            }
+            var returnArray = SherdBookmarklet.assethandler.objects_and_embeds.players.flowplayer3.asset(video, "", context);
+            returnArray.sources.title = jQuery("#edit-title").text();
+            returnArray.sources.description = jQuery("#edit-description").text();
+            return callback( [returnArray] );
+            });
+          }
+    },
     "youtube.com": {
         find:function(callback) {
             SherdBookmarklet.run_with_jquery(function _find(jQuery) {
