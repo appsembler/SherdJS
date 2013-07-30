@@ -971,7 +971,7 @@ SherdBookmarklet = {
                       var primary_type = type+get_provider(clip);
                       sources[primary_type] = clip.completeUrl || clip.originalUrl || clip.resolvedUrl || clip.url || clip;
                       if (provider && provider.netConnectionUrl) {
-                          sources[primary_type] = provider.netConnectionUrl+sources[primary_type]
+                          sources[primary_type] = provider.netConnectionUrl + '//' + sources[primary_type]
                       } 
                       ///TODO:is context.document the right relative URL instead of the SWF?
                       sources[primary_type] = abs(sources[primary_type],context.document);
